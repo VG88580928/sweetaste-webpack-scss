@@ -1,0 +1,53 @@
+// index-section
+.index-banner {
+  .index-banner-img {
+    animation: banner-show 0.8s ease-in;
+  }
+  .banner-content {
+    animation: banner-content-fade-top 0.8s ease-in;
+  }
+}
+
+.fade-left {
+  transform: translateX(-30px);
+  opacity: 0;
+  transition: all 0.7s ease-in;
+}
+
+.fade-right {
+  transform: translateX(30px);
+  opacity: 0;
+  transition: all 0.7s ease-in;
+}
+
+.fade-top {
+  transform: translateY(-30px);
+  opacity: 0;
+  transition: all 0.7s ease-in;
+}
+
+.fade-bottom {
+  transform: translateY(-30px);
+  opacity: 0;
+  transition: all 0.7s ease-in;
+}
+
+@keyframes banner-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes banner-content-fade-top {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+}

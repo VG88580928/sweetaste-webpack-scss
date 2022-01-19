@@ -1,0 +1,10 @@
+// @use 只是參造，不像 @import 是全部導入，能降低命名衝突的可能性(sass官方未來計畫全面改用 @use)
+@use 'custom';
+@use 'animation';
+
+// import components
+@use 'components/navbar';
+@use 'components/footer';
+
+// import sections
+@use 'sections/index';

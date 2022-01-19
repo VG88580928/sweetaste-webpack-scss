@@ -1,0 +1,27 @@
+// 主題顏色
+$green-dark: #3f5d45 !default;
+$green-light: #eaf0ed !default;
+
+// Include any default variable overrides here (though functions won't be available)
+
+$primary: $green-dark;
+$secondary: $green-light;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 940px,
+  xl: 1054px,
+) !default;
+
+// mixins
+
+// import bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// Then add additional custom code here
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

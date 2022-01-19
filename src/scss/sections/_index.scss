@@ -1,0 +1,339 @@
+// 不想使用 namespace 就直接 as *,但這寫法只適合這些 stylesheet 是自己寫的狀況
+@use '../custom' as *;
+
+.index-banner {
+  .banner-content {
+    transform: translateY(-50%);
+  }
+  .card {
+    height: 256px;
+    border-radius: 0;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff;
+    // https://stackoverflow.com/questions/13182577/how-can-i-blur-an-image-using-css-but-keep-the-border-straight
+    overflow: hidden;
+  }
+  span {
+    writing-mode: vertical-lr;
+    font-size: 24px;
+    color: #fff;
+    letter-spacing: 10px;
+    font-weight: 800;
+    transition: color 0.3s ease-in-out;
+  }
+  a {
+    text-decoration: none;
+    z-index: 2;
+  }
+  a.active .frosted-image {
+    filter: blur(0px);
+  }
+  a.active .frosted-image::before {
+    background-color: #ffe180;
+  }
+  a.active span {
+    color: $primary;
+  }
+  a:hover .frosted-image::before {
+    background-color: #ffe180;
+    color: $primary;
+  }
+  a:hover span {
+    color: $primary;
+  }
+  a:hover .frosted-image {
+    filter: blur(0px);
+  }
+  @media (max-width: 767.98px) {
+    .card {
+      height: 180px;
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.index-banner .frosted-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-size: cover;
+  background-position: center center;
+  // filter 是模糊當前元素，如果是要模糊底部元素，則使用 backdrop-filter(兼容性普普)
+  filter: blur(5px);
+  z-index: -2;
+  margin: -1px;
+  padding: 1px;
+  transition: filter 0.3s ease-in-out;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $primary;
+    opacity: 0.75;
+    transition: background-color 0.3s ease-in-out;
+  }
+  // 記得是先 :hover 再 ::before,別寫反了
+  // &:hover::before {
+  //   background-color: #ffe180;
+  //   color: $primary;
+  // }
+}
+
+.slogan4 {
+  display: none;
+  @media (max-width: 767.98px) {
+    display: block;
+    margin-bottom: 30px;
+    margin-top: -50px;
+  }
+}
+
+.middle-slice1 {
+  background-color: $secondary;
+  margin-top: -30px;
+  .text {
+    writing-mode: vertical-rl;
+    height: 280px;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    // margin: 70px 30px;
+    color: #8da291;
+    letter-spacing: 0.2rem;
+    line-height: 2;
+    padding: 0 30px;
+  }
+  .row {
+    height: 420px;
+  }
+  .img {
+    height: 460px;
+    background-size: cover;
+    background-position: center center;
+    transform: translateY(-20px);
+  }
+  .slogan1 {
+    height: 307px;
+    width: 20%;
+    margin-left: 15px;
+    transform: translateY(-20px);
+    background-repeat: no-repeat;
+    justify-content: end;
+    @media (max-width: 767.98px) {
+      &.none-md {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 767.98px) {
+    margin-top: 0;
+    .row {
+      height: auto;
+    }
+    .row .col-md-6 {
+      padding: 0;
+    }
+    .img {
+      height: 250px;
+      transform: translateY(0px);
+    }
+    .text {
+      writing-mode: horizontal-tb;
+      height: auto;
+      width: 100%;
+      margin: 25px 0;
+    }
+  }
+}
+
+.slogan5 {
+  display: none;
+  @media (max-width: 767.98px) {
+    display: block;
+    margin: 30px 0;
+  }
+}
+
+.middle-slice2 {
+  background-color: $secondary;
+  margin-top: 105px;
+  .text {
+    writing-mode: vertical-rl;
+    height: 280px;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    // margin: 70px 30px;
+    color: #8da291;
+    letter-spacing: 0.2rem;
+    line-height: 2;
+    padding: 0 30px;
+  }
+  .row {
+    height: 420px;
+  }
+  .img {
+    height: 460px;
+    background-size: cover;
+    background-position: center center;
+    transform: translateY(-20px);
+  }
+  .slogan2 {
+    height: 307px;
+    width: 20%;
+    margin-left: 15px;
+    transform: translateY(-20px);
+    background-repeat: no-repeat;
+    justify-content: end;
+    @media (max-width: 767.98px) {
+      &.none-md {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 767.98px) {
+    margin-top: 0;
+    .row {
+      height: auto;
+      flex-direction: column-reverse;
+    }
+    .row .col-md-6 {
+      padding: 0;
+    }
+    .img {
+      height: 250px;
+      transform: translateY(0px);
+    }
+    .text {
+      writing-mode: horizontal-tb;
+      height: auto;
+      width: 100%;
+      margin: 25px 0;
+    }
+  }
+}
+
+.middle-slice3 {
+  display: flex;
+  margin: 95px 0;
+  justify-content: center;
+  .img-1 {
+    height: 330px;
+    width: 90px;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+  }
+  .img-2 {
+    display: none;
+  }
+  @media (max-width: 767.98px) {
+    margin: 25px 0;
+    .img-1 {
+      display: none;
+    }
+    .img-2 {
+      display: block;
+      height: 60px;
+      width: 226px;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 0.7s ease-in-out;
+    }
+  }
+}
+
+.items {
+  margin-bottom: 60px;
+  .row {
+    justify-content: space-between;
+  }
+  .items-border {
+    border: 1px solid $secondary;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.6);
+    }
+  }
+  .img {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 315px;
+  }
+  .img::before {
+    content: '本日精選';
+    position: absolute;
+    left: 21px;
+    top: 0;
+    writing-mode: vertical-lr;
+    padding: 15px 8px;
+    background-color: $primary;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    text-align: center;
+  }
+  .heart {
+    position: absolute;
+    top: 19px;
+    right: 24px;
+    font-size: 24px;
+    color: $primary;
+  }
+  span {
+    padding: 15px 0;
+    color: $primary;
+    font-size: 20px;
+    flex-grow: 1;
+    text-align: center;
+  }
+  span:nth-child(1) {
+    border-right: 1px solid $secondary;
+    flex-grow: 2;
+  }
+  span:nth-child(2) {
+    font-weight: 600;
+  }
+  button {
+    width: 100%;
+    color: $primary;
+    background-color: $secondary;
+    border: none;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 15px 0;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: $primary;
+      color: $secondary;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .index-banner {
+    padding: 0;
+  }
+  .items {
+    margin-bottom: 0;
+    .row {
+      justify-content: center;
+      .items-border {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

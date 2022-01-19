@@ -1,0 +1,67 @@
+// 不想使用 namespace 就直接 as *,但這寫法只適合這些 stylesheet 是自己寫的狀況
+@use '../custom' as *;
+
+.navbar {
+  padding: 25px 1rem;
+  img:last-child {
+    display: none;
+  }
+  .shopping-cart-md {
+    display: none;
+  }
+  @media (max-width: 767.98px) {
+    .container {
+      justify-content: space-between;
+      .navbar-toggler {
+        color: $primary;
+        border: none;
+      }
+      .shopping-cart-md {
+        display: inline;
+        font-size: 20px;
+        &:hover {
+          color: #689981;
+        }
+      }
+      .navbar-brand {
+        margin-right: 0;
+      }
+      img:first-child {
+        display: none;
+      }
+      img:last-child {
+        display: inline;
+      }
+      .collapse li:last-child {
+        display: none;
+      }
+      .collapsing li:last-child {
+        display: none;
+      }
+    }
+  }
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $primary;
+  font-weight: 900;
+  // padding 記得加在 a 標籤上，使用者才會好點擊
+  padding: 10px 30px;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+  i {
+    font-size: 20px;
+  }
+  &.active {
+    color: #fff;
+    background-color: $primary;
+  }
+  &:hover {
+    color: #fff;
+    background-color: $primary;
+  }
+  &:focus {
+    color: #fff;
+    background-color: $primary;
+  }
+}

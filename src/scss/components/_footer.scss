@@ -1,0 +1,98 @@
+// 不想使用 namespace 就直接 as *,但這寫法只適合這些 stylesheet 是自己寫的狀況
+@use '../custom' as *;
+
+footer {
+  .part-1 {
+    background-color: $primary;
+    padding: 30px 0;
+    span {
+      color: $secondary;
+      font-size: 24px;
+      font-weight: 500;
+      // 用於 inline & inline-block 元素和表格，使元素的中部與父元素的基線加上父元素 x-height（譯註：x高度）的一半對齊。(可參考: https://www.zhangxinxu.com/wordpress/2015/06/about-letter-x-of-css/)
+      vertical-align: middle;
+    }
+    .input-group {
+      flex-wrap: nowrap;
+      .input-group-prepend {
+        padding: 14px 20px;
+        background-color: $secondary;
+        font-size: 20px;
+        i {
+          color: $primary;
+        }
+      }
+      input {
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 6px 12px;
+        font-size: 20px;
+        background-color: $secondary;
+      }
+      button {
+        font-size: 20px;
+        padding: 14px 20px;
+        border: none;
+        color: $primary;
+        background-color: #ffe180;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          background-color: #fccd35;
+        }
+      }
+    }
+    @media (max-width: 767.98px) {
+      .input-group {
+        padding: 0 30px;
+      }
+    }
+  }
+
+  .part-2 {
+    background-color: $secondary;
+    padding: 39px 0 30px 0;
+    .dark-logo {
+      padding-bottom: 100px;
+    }
+    .shop-info {
+      color: $primary;
+      font-weight: 600;
+      margin: 20px 0;
+    }
+    img {
+      margin-right: 5px;
+    }
+    .copyright {
+      color: $primary;
+      // 因為 flex 沒有 justify-self(因為沒必要)，所以用 margin auto 替代(相關討論: https://stackoverflow.com/questions/32551291/in-css-flexbox-why-are-there-no-justify-items-and-justify-self-properties)
+      margin: auto 0 0 0;
+    }
+    @media (max-width: 767.98px) {
+      .dark-logo {
+        padding-bottom: 30px;
+      }
+      .copyright {
+        margin-top: 23px;
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    .container {
+      max-width: 810px;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .part-1-left {
+      text-align: center;
+    }
+    .input-group {
+      margin-top: 15px;
+    }
+    .footer-slogan {
+      display: none;
+    }
+  }
+}
