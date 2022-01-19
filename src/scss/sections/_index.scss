@@ -91,6 +91,8 @@
   display: none;
   @media (max-width: 767.98px) {
     display: block;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
     margin-bottom: 30px;
     margin-top: -50px;
   }
@@ -159,6 +161,8 @@
   display: none;
   @media (max-width: 767.98px) {
     display: block;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
     margin: 30px 0;
   }
 }

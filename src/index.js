@@ -27,6 +27,8 @@ const elements = [
   ...document.querySelectorAll('.middle-slice2 .col-md-6'),
   document.querySelector('.middle-slice3 .img-1'),
   document.querySelector('.middle-slice3 .img-2'),
+  document.querySelector('.slogan4'),
+  document.querySelector('.slogan5'),
 ];
 
 elements.forEach((element) => {
