@@ -10,7 +10,10 @@
     border-radius: 0;
     justify-content: center;
     align-items: center;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
+    // 記得消除中間重疊邊框
+    margin-left: -2px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
     // https://stackoverflow.com/questions/13182577/how-can-i-blur-an-image-using-css-but-keep-the-border-straight
     overflow: hidden;
   }
