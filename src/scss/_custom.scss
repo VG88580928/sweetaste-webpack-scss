@@ -25,3 +25,11 @@ $container-max-widths: (
   padding: 0;
   box-sizing: border-box;
 }
+
+// 因為發現在 mobile 時，動畫起初的 translateX(30px) 會造成網頁右邊多出不必要的空間，因此在 body 補上 width: 100vw & overflow-x: hidden
+// (參考來源: https://stackoverflow.com/questions/46038910/css-translate-x-causes-white-space-on-right-side-of-screen-mobile)
+html,
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
